@@ -1,6 +1,12 @@
-import React from 'react';
-import 'swiper/css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// import required modules
+import { EffectFade, Navigation, Pagination } from "swiper";
 import img1 from './img-1.jpg';
 import img2 from './img-2.jpg';
 import img3 from './img-3.jpg';
@@ -12,11 +18,15 @@ const SwiperJs = () => {
   return (
     <>
     <Swiper
-      spaceBetween={50}
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
+        spaceBetween={30}
+        effect={"fade"}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[EffectFade, Navigation, Pagination]}
+        className="mySwiper"
+      >
       <SwiperSlide>
         <img className={styles.sliderImg} src={img1} alt=""/>
       </SwiperSlide>
@@ -37,4 +47,4 @@ const SwiperJs = () => {
   )
 }
 
-export default SwiperJs
+export default SwiperJs;
